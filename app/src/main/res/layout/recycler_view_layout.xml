@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageImageView"
-        android:layout_width="120sp"
-        android:layout_height="175sp"
+        android:layout_width="105sp"
+        android:layout_height="150sp"
         tools:srcCompat="@tools:sample/avatars"
         android:scaleType="fitXY"/>
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -15,26 +16,28 @@ class ImageActivity : AppCompatActivity() {
         // Find layout (root element)
         val layout = findViewById<View>(R.id.layout)
         val image = findViewById<ImageView>(R.id.imageView)
+        val text = findViewById<TextView>(R.id.textView)
 
         // Create array of color objects
         val images = arrayOf(
-            ImageObject(1, R.drawable.avatar),
-            ImageObject(2, R.drawable.babydriver),
-            ImageObject(3, R.drawable.darkknight),
-            ImageObject(4, R.drawable.et),
-            ImageObject(5, R.drawable.fightclub),
-            ImageObject(9, R.drawable.parasite),
-            ImageObject(10, R.drawable.pulpfiction),
-            ImageObject(11, R.drawable.shrek),
-            ImageObject(6, R.drawable.thegodfather),
-            ImageObject(7, R.drawable.thelorax),
-            ImageObject(8, R.drawable.thematrix),
+            ImageObject("Avatar", R.drawable.avatar),
+            ImageObject("Baby Driver", R.drawable.babydriver),
+            ImageObject("The Dark Knight", R.drawable.darkknight),
+            ImageObject("E.T.", R.drawable.et),
+            ImageObject("Fight Club", R.drawable.fightclub),
+            ImageObject("Parasite", R.drawable.parasite),
+            ImageObject("Pulp Fiction", R.drawable.pulpfiction),
+            ImageObject("Shrek", R.drawable.shrek),
+            ImageObject("The Godfather", R.drawable.thegodfather),
+            ImageObject("The Lorax", R.drawable.thelorax),
+            ImageObject("The Matrix", R.drawable.thematrix),
         )
 
 
         val myRecyclerViewFunc = {
             imageObject:ImageObject ->
-                image.setImageResource(imageObject.title)
+                image.setImageResource(imageObject.resourceId)
+                text.text = imageObject.title
                 // colorObject:ColorObject -> layout.setBackgroundColor(Color.parseColor(colorObject.code))
         }
 

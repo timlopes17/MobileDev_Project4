@@ -1,3 +1,3 @@
 package edu.temple.timlopes_project4
 
-data class ImageObject(val resourceId : Int, val title : Int)
+data class ImageObject(val title : String, val resourceId : Int)
