@@ -3,6 +3,7 @@ package edu.temple.timlopes_project4
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -13,33 +14,36 @@ class ImageActivity : AppCompatActivity() {
 
         // Find layout (root element)
         val layout = findViewById<View>(R.id.layout)
+        val image = findViewById<ImageView>(R.id.imageView)
 
         // Create array of color objects
-        val colors = arrayOf(
-            ImageObject(1, "Avatar.jpeg"),
-            ImageObject(2, "BabyDriver.jpg"),
-            ImageObject(3, "DarkKnight.jpg"),
-            ImageObject(4, "ET.jpg"),
-            ImageObject(5, "FightClub.jpg"),
-            ImageObject(6, "Parasite.jpg"),
-            ImageObject(7, "PulpFiction.jpg"),
-            ImageObject(8, "Shrek.jpg"),
-            ImageObject(9, "TheGodFather.jpg"),
-            ImageObject(10, "TheLorax.jpg"),
-            ImageObject(10, "TheMatrix.jpg")
+        val images = arrayOf(
+            ImageObject(1, R.drawable.avatar),
+            ImageObject(2, R.drawable.babydriver),
+            ImageObject(3, R.drawable.darkknight),
+            ImageObject(4, R.drawable.et),
+            ImageObject(5, R.drawable.fightclub),
+            ImageObject(9, R.drawable.parasite),
+            ImageObject(10, R.drawable.pulpfiction),
+            ImageObject(11, R.drawable.shrek),
+            ImageObject(6, R.drawable.thegodfather),
+            ImageObject(7, R.drawable.thelorax),
+            ImageObject(8, R.drawable.thematrix),
         )
 
 
         val myRecyclerViewFunc = {
+            imageObject:ImageObject ->
+                image.setImageResource(imageObject.title)
                 // colorObject:ColorObject -> layout.setBackgroundColor(Color.parseColor(colorObject.code))
         }
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
-        // Assign a Grid layout manager with 2 columns
-        recyclerView.layoutManager = GridLayoutManager(this, 4)
+        // Assign a Grid layout manager with 4 columns
+        recyclerView.layoutManager = GridLayoutManager(this, 3)
 
         // Initialize adapter with lambda for event listening
-        recyclerView.adapter = ColorAdapter(colors, myRecyclerViewFunc)
+        recyclerView.adapter = ImageAdapter(images, myRecyclerViewFunc)
     }
 }
